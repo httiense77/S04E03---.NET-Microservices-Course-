@@ -1,3 +1,4 @@
+# 3
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,12 +15,12 @@ spec:
     spec:
       containers:
         - name: platformservice
-          image: binarythistle/platformservice:latest
+          image: tienhtse77/platformservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: platforms-clusterip-srv
+  name: platforms-clusterip-srv # this is a name used as domain name when communicating inside a node: http://platforms-clusterip-srv:80/
 spec:
   type: ClusterIP
   selector:

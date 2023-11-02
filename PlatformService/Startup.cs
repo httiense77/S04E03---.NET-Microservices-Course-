@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Grpc;
@@ -37,9 +39,9 @@ namespace PlatformService
         {
             if (_env.IsProduction())
             {
-                Console.WriteLine("--> Using SqlServer Db");
-                services.AddDbContext<AppDbContext>(opt =>
-                    opt.UseSqlServer(Configuration.GetConnectionString("PlatformsConn")));
+               Console.WriteLine("--> Using SqlServer Db");
+               services.AddDbContext<AppDbContext>(opt =>
+                   opt.UseSqlServer(Configuration.GetConnectionString("PlatformsConn")));
             }
             else
             {

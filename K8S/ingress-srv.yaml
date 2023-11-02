@@ -1,3 +1,4 @@
+# 6
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: acme.com
+    - host: acme.com # this is the host in local, we match this domain to localhost
       http:
         paths:
           - path: /api/platforms

@@ -1,3 +1,4 @@
+# 5
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,12 +15,12 @@ spec:
     spec:
       containers:
         - name: commandservice
-          image: binarythistle/commandservice:latest
+          image: tienhtse77/commandservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: commands-clusterip-srv
+  name: commands-clusterip-srv # this is a name used as domain name when communicating inside a node: http://commands-clusterip-srv:80/
 spec:
   type: ClusterIP
   selector:

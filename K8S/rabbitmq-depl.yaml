@@ -1,3 +1,4 @@
+# 2
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,11 +31,11 @@ spec:
   selector:
     app: rabbitmq
   ports:
-  - name: rbmq-mgmt-port
+  - name: rbmq-mgmt-port # management web port
     protocol: TCP
     port: 15672
     targetPort: 15672
-  - name: rbmq-msg-port
+  - name: rbmq-msg-port # message port
     protocol: TCP
     port: 5672
     targetPort: 5672
@@ -44,7 +45,7 @@ kind: Service
 metadata:
   name: rabbitmq-loadbalancer
 spec:
-  type: LoadBalancer
+  type: LoadBalancer # the reason for creating a load balancer is it is acting the same way Node Port in this application context
   selector:
     app: rabbitmq
   ports:
