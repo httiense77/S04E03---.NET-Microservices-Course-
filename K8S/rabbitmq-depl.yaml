@@ -45,7 +45,8 @@ kind: Service
 metadata:
   name: rabbitmq-loadbalancer
 spec:
-  type: LoadBalancer # the reason for creating a load balancer is it is acting the same way Node Port in this application context
+  # the reason for creating a load balancer is it is acting the same way Node Port in this application context
+  type: LoadBalancer 
   selector:
     app: rabbitmq
   ports:
